@@ -184,4 +184,143 @@ Assumes normal distribution in simulation
 Dependent on historical data
 No real-time live trading integration
 17. Impact
+This project empowers retail investors by transforming complex financial risk models into clear, visual, and actionable insights — enabling smarter, data-driven investment decisions.Architecture Description
+User inputs portfolio
+Frontend sends request to backend
+Backend fetches historical data
+Risk engine computes metrics
+Simulation module runs Monte Carlo
+Results stored temporarily
+Insights returned and visualized
+Architecture Diagram
+(Add system architecture diagram image here)
+5. Database Design
+ER Diagram
+(Add ER diagram image here)
+ER Diagram Description
+Entities:
+User
+Portfolio
+Asset
+Historical Data
+Risk Metrics
+Relationships:
+One user can have multiple portfolios
+One portfolio can contain multiple assets
+Each asset has associated historical price data
+6. Dataset Selected
+Dataset Name
+Historical Stock Price Data
+Source
+Yahoo Finance API (yfinance)
+Data Type
+Time-series financial data
+Selection Reason
+Reliable historical market data
+Free and accessible
+Covers global markets
+Preprocessing Steps
+Extract Adjusted Close prices
+Handle missing values
+Compute daily returns
+Normalize for simulations
+7. Model Selected
+Model Name
+Statistical Risk Models + Monte Carlo Simulation
+Selection Reasoning
+Industry standard in portfolio risk analysis
+Interpretable results
+Computationally efficient
+Alternatives Considered
+GARCH volatility model
+LSTM-based forecasting
+ARIMA time-series model
+Evaluation Metrics
+Portfolio volatility
+Sharpe Ratio
+95% Value at Risk
+Beta coefficient
+8. Technology Stack
+Frontend
+Streamlit / React
+Backend
+Python / FastAPI
+ML/AI
+NumPy, Pandas, SciPy
+Database
+PostgreSQL / SQLite
+Deployment
+Streamlit Cloud / Render / AWS
+9. API Documentation & Testing
+API Endpoints List
+Endpoint 1: /get-portfolio-data
+Fetches historical stock data
+Endpoint 2: /calculate-risk
+Returns risk metrics
+Endpoint 3: /run-simulation
+Runs Monte Carlo simulation
+API Testing Screenshots
+(Add Postman / Thunder Client screenshots here)
+10. Module-wise Development & Deliverables
+Checkpoint 1: Research & Planning
+Deliverables:
+Risk model research
+Architecture design
+Checkpoint 2: Backend Development
+Deliverables:
+Data fetching module
+Risk calculation engine
+Checkpoint 3: Frontend Development
+Deliverables:
+Interactive dashboard
+Visualization components
+Checkpoint 4: Model Training
+Deliverables:
+Simulation module
+Risk evaluation metrics
+Checkpoint 5: Model Integration
+Deliverables:
+Backend + Simulation integration
+Real-time recalculation
+Checkpoint 6: Deployment
+Deliverables:
+Live hosted application
+Demo-ready version
+11. End-to-End Workflow
+User enters stock tickers and allocation
+System fetches historical price data
+Daily returns computed
+Risk metrics calculated
+Monte Carlo simulation runs
+Insights and visualizations displayed
+12. Demo & Video
+Live Demo Link:
+Demo Video Link:
+GitHub Repository:
+13. Hackathon Deliverables Summary
+Working risk analytics dashboard
+Simulation engine
+API endpoints
+Visual risk reporting
+Deployment-ready system
+14. Team Roles & Responsibilities
+Member Name	Role	Responsibilities
+Member 1	Backend Developer	Risk engine & API
+Member 2	Frontend Developer	Dashboard & UI
+Member 3	Data/ML Engineer	Simulation & modeling
+15. Future Scope & Scalability
+Short-Term
+Portfolio optimization (Efficient Frontier)
+PDF risk reports
+Improved UI analytics
+Long-Term
+Real-time streaming data
+AI-based volatility forecasting
+Multi-user authentication system
+Cloud-scale architecture
+16. Known Limitations
+Assumes normal distribution in simulation
+Dependent on historical data
+No real-time live trading integration
+17. Impact
 This project empowers retail investors by transforming complex financial risk models into clear, visual, and actionable insights — enabling smarter, data-driven investment decisions.
