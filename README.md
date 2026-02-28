@@ -85,7 +85,7 @@ Extract Adjusted Close prices
 Handle missing values
 Compute daily returns
 Normalize for simulations
-7. Model Selected
+## 7. Model Selected
 Model Name
 Statistical Risk Models + Monte Carlo Simulation
 Selection Reasoning
@@ -122,7 +122,7 @@ Endpoint 3: /run-simulation
 Runs Monte Carlo simulation
 API Testing Screenshots
 (Add Postman / Thunder Client screenshots here)
-10. Module-wise Development & Deliverables
+## 10. Module-wise Development & Deliverables
 ### Checkpoint 1: Research & Planning
 Deliverables:
 Risk model research
@@ -154,7 +154,7 @@ Daily returns computed
 Risk metrics calculated
 Monte Carlo simulation runs
 Insights and visualizations displayed
-12. Demo & Video
+## 12. Demo & Video
 Live Demo Link:
 Demo Video Link:
 GitHub Repository:
