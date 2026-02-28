@@ -54,7 +54,7 @@ Simulation module runs Monte Carlo
 Results stored temporarily
 Insights returned and visualized
 ### Architecture Diagram
-(Add system architecture diagram image here)
+
 ## 5. Dataset Selected
 ### Dataset Name
 Historical Stock Price Data
