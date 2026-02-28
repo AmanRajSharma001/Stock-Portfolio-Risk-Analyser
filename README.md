@@ -108,55 +108,30 @@ Endpoint 3: /run-simulation
 Runs Monte Carlo simulation
 API Testing Screenshots
 (Add Postman / Thunder Client screenshots here)
-## 9. Module-wise Development & Deliverables
-### Checkpoint 1: Research & Planning
-Deliverables:
-Risk model research
-Architecture design
-### Checkpoint 2: Backend Development
-Deliverables:
-Data fetching module
-Risk calculation engine
-### Checkpoint 3: Frontend Development
-Deliverables:
-Interactive dashboard
-Visualization components
-Checkpoint 4: Model Training
-Deliverables:
-Simulation module
-Risk evaluation metrics
-### Checkpoint 5: Model Integration
-Deliverables:
-Backend + Simulation integration
-Real-time recalculation
-### Checkpoint 6: Deployment
-Deliverables:
-Live hosted application
-Demo-ready version
-## 10. End-to-End Workflow
+## 9. End-to-End Workflow
 User enters stock tickers and allocation
 System fetches historical price data
 Daily returns computed
 Risk metrics calculated
 Monte Carlo simulation runs
 Insights and visualizations displayed
-## 11. Demo & Video
+## 10. Demo & Video
 Live Demo Link:
 Demo Video Link:
 GitHub Repository: https://github.com/AmanRajSharma001/Stock-Portfolio-Risk-Analyser
-## 12. Hackathon Deliverables Summary
+## 11. Hackathon Deliverables Summary
 Working risk analytics dashboard
 Simulation engine
 API endpoints
 Visual risk reporting
 Deployment-ready system
-## 13. Team Roles & Responsibilities
+## 12. Team Roles & Responsibilities
 | Member Name	| Role	| Responsibilities |
 | --- | --- | --- |
 | Aman Raj Sharma	| Backend Developer	| Risk engine & API |
 | Deepak Kumar	| Frontend Developer	| Dashboard & UI |
 | Saransh Mittal	| Data/ML Engineer	| Simulation & modeling |
-## 14. Future Scope & Scalability
+## 13. Future Scope & Scalability
 Short-Term
 Portfolio optimization (Efficient Frontier)
 PDF risk reports
@@ -166,9 +141,9 @@ Real-time streaming data
 AI-based volatility forecasting
 Multi-user authentication system
 Cloud-scale architecture
-## 15. Known Limitations
+## 14. Known Limitations
 Assumes normal distribution in simulation
 Dependent on historical data
 No real-time live trading integration
-## 16. Impact
+## 15. Impact
 This project empowers retail investors by transforming complex financial risk models into clear, visual, and actionable insights — enabling smarter, data-driven investment decisions.
