@@ -29,30 +29,28 @@ export default function Navbar() {
         <nav className="fixed top-0 inset-x-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 group">
-                    <div className="bg-indigo-500 p-1.5 rounded-lg group-hover:bg-indigo-400 transition">
+                    <div className="bg-indigo-500 p-1.5 rounded-lg group-hover:bg-indigo-400 transition shadow-lg shadow-indigo-500/20">
                         <Activity className="w-5 h-5 text-white" />
                     </div>
-                    <span className="font-bold text-lg tracking-tight text-white">MarketPlay</span>
+                    <span className="font-bold text-lg tracking-tight text-white group-hover:text-indigo-100 transition-colors">MarketPlay</span>
                 </Link>
                 <div className="flex items-center gap-4">
                     {user ? (
                         <>
-                            <span className="text-sm font-medium text-slate-300 mr-2">{user.email}</span>
                             <Link href="/dashboard">
-                                <button className="text-sm font-medium text-slate-300 hover:text-white transition">
+                                <button className="text-sm font-medium px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-full transition">
                                     Dashboard
                                 </button>
                             </Link>
-                            <button
-                                onClick={handleLogout}
-                                className="text-sm font-medium text-slate-400 hover:text-slate-200 transition"
-                            >
-                                Sign Out
-                            </button>
+                            <Link href="/profile">
+                                <button className="text-sm font-medium px-4 py-2 text-indigo-300 hover:text-indigo-200 hover:bg-indigo-500/10 rounded-full border border-transparent hover:border-indigo-500/20 transition">
+                                    Profile
+                                </button>
+                            </Link>
                         </>
                     ) : (
                         <Link href="/login">
-                            <button className="text-sm font-medium px-4 py-2 bg-indigo-500 hover:bg-indigo-400 text-white rounded-full transition">
+                            <button className="text-sm font-medium px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400 text-white rounded-full transition shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40">
                                 Sign In
                             </button>
                         </Link>

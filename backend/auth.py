@@ -4,7 +4,7 @@ from firebase_admin import credentials, auth
 from fastapi import Header, HTTPException
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", "frontend", ".env"))
 
 # Firebase admin initialization
 try:

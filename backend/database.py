@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", "frontend", ".env"))
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./portfolio.db") 
 # Defaulting to SQLite for easy local dev if Postgres isn't provided
