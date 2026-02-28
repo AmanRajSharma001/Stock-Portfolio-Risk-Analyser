@@ -5,9 +5,9 @@ Stock Portfolio Risk Analyzer
 Retail investors often rely on daily gains and losses to evaluate performance. However, this approach fails to capture true portfolio risk. Important metrics such as Value at Risk (VaR), Sharpe Ratio, Beta, and asset correlations are rarely accessible in simple tools.
 Without structured risk analysis, investors may underestimate volatility, ignore diversification weaknesses, and make decisions based on intuition rather than data.
 ## Target Users
-Retail investors
-Beginner traders
-Finance students
+Retail investors,
+Beginner traders,
+Finance students,
 Portfolio managers (entry-level)
 ## Existing Gaps
 Lack of simple tools for advanced risk metrics
@@ -55,21 +55,7 @@ Results stored temporarily
 Insights returned and visualized
 ### Architecture Diagram
 (Add system architecture diagram image here)
-## 5. Database Design
-### ER Diagram
-(Add ER diagram image here)
-### ER Diagram Description
-Entities:
-User
-Portfolio
-Asset
-Historical Data
-Risk Metrics
-Relationships:
-One user can have multiple portfolios
-One portfolio can contain multiple assets
-Each asset has associated historical price data
-## 6. Dataset Selected
+## 5. Dataset Selected
 ### Dataset Name
 Historical Stock Price Data
 ### Source
@@ -85,7 +71,7 @@ Extract Adjusted Close prices
 Handle missing values
 Compute daily returns
 Normalize for simulations
-## 7. Model Selected
+## 6. Model Selected
 Model Name
 Statistical Risk Models + Monte Carlo Simulation
 Selection Reasoning
@@ -101,7 +87,7 @@ Portfolio volatility
 Sharpe Ratio
 95% Value at Risk
 Beta coefficient
-## 8. Technology Stack
+## 7. Technology Stack
 ### Frontend
 Streamlit / React
 ### Backend
@@ -112,7 +98,7 @@ NumPy, Pandas, SciPy
 PostgreSQL / SQLite
 ### Deployment
 Streamlit Cloud / Render / AWS
-## 9. API Documentation & Testing
+## 8. API Documentation & Testing
 ### API Endpoints List
 Endpoint 1: /get-portfolio-data
 Fetches historical stock data
@@ -122,7 +108,7 @@ Endpoint 3: /run-simulation
 Runs Monte Carlo simulation
 API Testing Screenshots
 (Add Postman / Thunder Client screenshots here)
-## 10. Module-wise Development & Deliverables
+## 9. Module-wise Development & Deliverables
 ### Checkpoint 1: Research & Planning
 Deliverables:
 Risk model research
@@ -147,30 +133,30 @@ Real-time recalculation
 Deliverables:
 Live hosted application
 Demo-ready version
-## 11. End-to-End Workflow
+## 10. End-to-End Workflow
 User enters stock tickers and allocation
 System fetches historical price data
 Daily returns computed
 Risk metrics calculated
 Monte Carlo simulation runs
 Insights and visualizations displayed
-## 12. Demo & Video
+## 11. Demo & Video
 Live Demo Link:
 Demo Video Link:
-GitHub Repository:
-## 13. Hackathon Deliverables Summary
+GitHub Repository: https://github.com/AmanRajSharma001/Stock-Portfolio-Risk-Analyser
+## 12. Hackathon Deliverables Summary
 Working risk analytics dashboard
 Simulation engine
 API endpoints
 Visual risk reporting
 Deployment-ready system
-## 14. Team Roles & Responsibilities
+## 13. Team Roles & Responsibilities
 | Member Name	| Role	| Responsibilities |
 | --- | --- | --- |
 | Aman Raj Sharma	| Backend Developer	| Risk engine & API |
 | Deepak Kumar	| Frontend Developer	| Dashboard & UI |
 | Saransh Mittal	| Data/ML Engineer	| Simulation & modeling |
-## 15. Future Scope & Scalability
+## 14. Future Scope & Scalability
 Short-Term
 Portfolio optimization (Efficient Frontier)
 PDF risk reports
@@ -180,9 +166,9 @@ Real-time streaming data
 AI-based volatility forecasting
 Multi-user authentication system
 Cloud-scale architecture
-## 16. Known Limitations
+## 15. Known Limitations
 Assumes normal distribution in simulation
 Dependent on historical data
 No real-time live trading integration
-## 17. Impact
+## 16. Impact
 This project empowers retail investors by transforming complex financial risk models into clear, visual, and actionable insights — enabling smarter, data-driven investment decisions.
