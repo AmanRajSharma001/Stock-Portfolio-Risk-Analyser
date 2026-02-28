@@ -89,7 +89,7 @@ Sharpe Ratio
 Beta coefficient
 ## 7. Technology Stack
 ### Frontend
-Streamlit / React
+Streamlit
 ### Backend
 Python / FastAPI
 ML/AI
