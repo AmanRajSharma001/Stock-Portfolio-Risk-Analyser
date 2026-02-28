@@ -170,7 +170,7 @@ Deployment-ready system
 | Aman Raj Sharma	| Backend Developer	| Risk engine & API |
 | Deepak Kumar	| Frontend Developer	| Dashboard & UI |
 | Saransh Mittal	| Data/ML Engineer	| Simulation & modeling |
-15. Future Scope & Scalability
+## 15. Future Scope & Scalability
 Short-Term
 Portfolio optimization (Efficient Frontier)
 PDF risk reports
