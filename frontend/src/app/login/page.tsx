@@ -18,19 +18,19 @@ export default function LoginPage() {
 
         try {
             const result = await signInWithPopup(auth, googleProvider)
-            const token = await result.user.getIdToken()
 
-            const res = await axios.post('http://127.0.0.1:8000/auth/verify', {
-                token: token
+            const res = await axios.post('http://localhost:8000/auth/login', {
+                email: result.user.email,
+                uid: result.user.uid
             })
 
-            if (res.data.status === 'success') {
+            if (res.data.success) {
                 localStorage.setItem('backend_user', JSON.stringify(res.data.user))
                 router.push('/dashboard')
             }
-        } catch (error) {
-            console.error(error)
-            alert("Authentication failed.")
+        } catch (error: any) {
+            console.error("Detailed Auth Error:", error)
+            alert(`Authentication failed: ${error.message || "Unknown error"}`)
         } finally {
             setLoading(false)
         }
