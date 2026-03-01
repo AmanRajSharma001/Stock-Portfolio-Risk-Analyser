@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -27,4 +28,6 @@ if (typeof window !== "undefined") {
     });
 }
 
-export { app, auth, googleProvider, signInWithPopup, signOut, analytics };
+const db = getFirestore(app);
+
+export { app, auth, db, googleProvider, signInWithPopup, signOut, analytics };
