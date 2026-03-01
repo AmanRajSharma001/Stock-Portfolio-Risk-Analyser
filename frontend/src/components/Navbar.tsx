@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { Activity, Globe } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { auth, signOut } from '@/lib/firebase'
-import { onAuthStateChanged, User } from 'firebase/auth'
+import { auth } from '@/lib/firebase'
+import { onAuthStateChanged, User, signOut } from 'firebase/auth'
 
 export default function Navbar() {
     const [user, setUser] = useState<User | null>(null)
