@@ -116,8 +116,10 @@ Risk metrics calculated
 Monte Carlo simulation runs
 Insights and visualizations displayed
 ## 10. Demo & Video
-Live Demo Link:
+Live Demo Link: https://stock-portfolio-risk-analyser.onrender.com
+
 Demo Video Link:
+
 GitHub Repository: https://github.com/AmanRajSharma001/Stock-Portfolio-Risk-Analyser
 ## 11. Hackathon Deliverables Summary
 Working risk analytics dashboard
