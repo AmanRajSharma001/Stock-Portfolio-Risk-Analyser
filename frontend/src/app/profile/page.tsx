@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import Navbar from '@/components/Navbar'
-import { auth, signOut } from '@/lib/firebase'
-import { onAuthStateChanged, updateProfile, User } from 'firebase/auth'
+import { auth } from '@/lib/firebase'
+import { onAuthStateChanged, updateProfile, User, signOut } from 'firebase/auth'
 import { Camera, Save, X, LogOut, User as UserIcon, Keyboard, Fingerprint, Settings2, Target, Clock, ShieldAlert, Cpu } from 'lucide-react'
 import axios from 'axios'
 
@@ -39,7 +39,8 @@ export default function ProfilePage() {
 
                 // Fetch existing preferences from our new SQL Database
                 try {
-                    const res = await axios.get(`http://localhost:8000/api/users/${currentUser.uid}`, { timeout: 4000 });
+                    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+                    const res = await axios.get(`${API_URL}/api/users/${currentUser.uid}`, { timeout: 4000 });
                     if (res.data.success && res.data.data) {
                         setPrefs({
                             riskTolerance: res.data.data.riskTolerance || "moderate",
@@ -48,7 +49,7 @@ export default function ProfilePage() {
                     }
 
                     // Fetch saved AI portfolios
-                    const savedRes = await axios.get(`http://localhost:8000/api/saved/${currentUser.uid}`);
+                    const savedRes = await axios.get(`${API_URL}/api/saved/${currentUser.uid}`);
                     if (savedRes.data.success) {
                         setSavedPortfolios(savedRes.data.data);
                     }
@@ -68,7 +69,8 @@ export default function ProfilePage() {
             await updateProfile(user, { displayName })
 
             // Update SQL Database Preferences
-            await axios.post('http://localhost:8000/api/users', {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            await axios.post(`${API_URL}/api/users`, {
                 uid: user.uid,
                 displayName: displayName,
                 riskTolerance: prefs.riskTolerance,
@@ -85,7 +87,8 @@ export default function ProfilePage() {
     const deletePortfolio = async (id: number) => {
         if (!user) return;
         try {
-            await axios.delete(`http://localhost:8000/api/saved/${id}`, { data: { uid: user.uid } });
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            await axios.delete(`${API_URL}/api/saved/${id}`, { data: { uid: user.uid } });
             setSavedPortfolios(prev => prev.filter(p => p.id !== id));
         } catch (e) {
             console.error("Failed to delete", e);

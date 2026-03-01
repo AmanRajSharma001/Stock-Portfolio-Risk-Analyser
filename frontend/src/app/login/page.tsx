@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 import { Mail, Loader2, Database } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { auth, googleProvider, signInWithPopup } from '@/lib/firebase'
+import { auth, googleProvider } from '@/lib/firebase'
+import { signInWithPopup } from 'firebase/auth'
 import axios from 'axios'
 
 export default function LoginPage() {
@@ -19,7 +20,8 @@ export default function LoginPage() {
         try {
             const result = await signInWithPopup(auth, googleProvider)
 
-            const res = await axios.post('http://localhost:8000/auth/login', {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            const res = await axios.post(`${API_URL}/auth/login`, {
                 email: result.user.email,
                 uid: result.user.uid
             })

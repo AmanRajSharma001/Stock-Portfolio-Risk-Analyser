@@ -68,7 +68,8 @@ export default function Dashboard() {
             const formData = new FormData();
             formData.append('file', file);
 
-            const res = await axios.post('http://localhost:8000/api/portfolio/analyze', formData, {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            const res = await axios.post(`${API_URL}/api/portfolio/analyze`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
@@ -89,7 +90,8 @@ export default function Dashboard() {
         if (!portfolioData) return;
         setIsSimulating(true);
         try {
-            const res = await axios.post('http://localhost:8000/api/simulation/monte-carlo', {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            const res = await axios.post(`${API_URL}/api/simulation/monte-carlo`, {
                 initialValue: portfolioData.portfolioValues[portfolioData.portfolioValues.length - 1].value,
                 returns: portfolioData.dailyPortfolioReturns,
                 numSimulations: 1000
@@ -108,7 +110,8 @@ export default function Dashboard() {
     const runAiDiscovery = async () => {
         setIsGenerating(true)
         try {
-            const res = await axios.post('http://localhost:8000/api/ai/recommend', aiForm)
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            const res = await axios.post(`${API_URL}/api/ai/recommend`, aiForm)
             if (res.data.success) {
                 setAiResult(res.data.data)
             }
@@ -123,7 +126,8 @@ export default function Dashboard() {
     const savePortfolio = async () => {
         if (!user || !aiResult) return;
         try {
-            const res = await axios.post('http://localhost:8000/api/saved', {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            const res = await axios.post(`${API_URL}/api/saved`, {
                 uid: user.uid,
                 portfolioName: `${aiForm.riskTolerance} ${aiForm.sector} Allocator - $${aiForm.budget}`,
                 allocationData: aiResult.allocation,
@@ -140,7 +144,8 @@ export default function Dashboard() {
     }
 
     const downloadTemplate = () => {
-        window.location.href = 'http://localhost:8000/api/portfolio/template'
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+        window.location.href = `${API_URL}/api/portfolio/template`
     }
 
     const handleReset = () => {

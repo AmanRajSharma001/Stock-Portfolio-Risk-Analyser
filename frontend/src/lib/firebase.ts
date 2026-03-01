@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getAuth, GoogleAuthProvider, Auth } from "firebase/auth";
+import { getFirestore, Firestore } from "firebase/firestore";
 import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -13,21 +13,24 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID as string,
 };
 
-// Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
-
-// Initialize Analytics conditionally (client-side only)
+// 🔥 Only initialize Firebase in browser
+let app: ReturnType<typeof initializeApp> | null = null;
+let auth: Auth | any = null;
+let db: Firestore | any = null;
+let googleProvider: GoogleAuthProvider | any = null;
 let analytics: Analytics | null = null;
+
 if (typeof window !== "undefined") {
+    app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+    auth = getAuth(app);
+    db = getFirestore(app);
+    googleProvider = new GoogleAuthProvider();
+
     isSupported().then((supported) => {
-        if (supported) {
+        if (supported && app) {
             analytics = getAnalytics(app);
         }
     });
 }
 
-const db = getFirestore(app);
-
-export { app, auth, db, googleProvider, signInWithPopup, signOut, analytics };
+export { app, auth, db, googleProvider, analytics };

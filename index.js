@@ -1,5 +1,12 @@
 import express from "express";
 import cors from "cors";
+import portfolioRoutes from "./routes/portfolioRoutes.js";
+import simulationRoutes from "./routes/simulationRoutes.js";
+import aiRoutes from "./routes/aiRoutes.js";
+import chatRoutes from "./routes/chatRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import savedRoutes from "./routes/savedRoutes.js";
+import { initializeDatabase } from "./db/database.js";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -13,7 +20,18 @@ app.use(cors({
     credentials: true
 }));
 
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+/* ================================
+   API Routes
+================================ */
+app.use("/api/portfolio", portfolioRoutes);
+app.use("/api/simulation", simulationRoutes);
+app.use("/api/ai", aiRoutes);
+app.use("/api/chat", chatRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/saved", savedRoutes);
 
 /* ================================
    Health Check Route
@@ -61,9 +79,12 @@ app.post("/auth/login", (req, res) => {
 });
 
 /* ================================
-   Start Server
+   Start Server & Database
 ================================ */
 
-app.listen(PORT, () => {
-    console.log(`✅ Server running on http://localhost:${PORT}`);
+initializeDatabase().then(() => {
+    app.listen(PORT, () => {
+        console.log(`✅ Server running on http://localhost:${PORT}`);
+        console.log(`💾 SQLite Database Mounted Successfully.`);
+    });
 });

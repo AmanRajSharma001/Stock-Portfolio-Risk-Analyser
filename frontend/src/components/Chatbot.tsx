@@ -55,7 +55,8 @@ export default function Chatbot() {
             // Strip the base64 string from history payloads to save bandwidth and prevent 413 Payload Too Large on subsequent messages
             const strippedHistory = messages.map(m => ({ role: m.role, text: m.text }));
 
-            const res = await axios.post('http://localhost:8000/api/chat', {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+            const res = await axios.post(`${API_URL}/api/chat`, {
                 message: userMsg.text,
                 image: sentImage,
                 history: strippedHistory
